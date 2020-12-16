@@ -1,0 +1,67 @@
+
+{% extends 'userprofile-base.html' %}
+{% load static %}
+{% load i18n %}
+{#{% load return_objects %}#}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title_container %}{% trans 'All Plans' %}{% endblock %}
+
+{% block head_container %}
+
+{% endblock %}
+
+
+{% block content_container %}
+
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE BASE CONTENT -->
+                    <div class="todo-main-header">
+                        <h3>{% trans 'My Plans' %}</h3>
+                        <ul class="todo-breadcrumb">
+                            <li>
+                                <a href="{% url 'userprofile:dashboard' %}">{% trans 'Dashboard' %}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="todo-container" id="work-plan-container" data-ajax-url="{% url 'userprofile:employee-plan-ajax' %}">
+                    </div>
+
+                    <!-- END PAGE BASE CONTENT -->
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+
+
+            <!-- Modal -->
+            <div id="todo-task-modal" class="modal fade" role="dialog">
+              <div class="modal-dialog" style="left: 0;">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="edit-location-order-modal-name">Map</h4>
+                  </div>
+                  <div class="modal-body" id="ajax-employee-map-div">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+{% endblock %}
+
+
+
+
+{% block footer_container %}
+
+        <script src="{% static 'theme/assets/custom/employee_plans.js' %}" type="text/javascript"></script>
+
+{% endblock %}

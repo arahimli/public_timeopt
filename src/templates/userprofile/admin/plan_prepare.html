@@ -1,0 +1,75 @@
+{% extends 'userprofile-base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load i18n %}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title_container %}{% trans 'Prepare Plans' %}{% endblock %}
+
+{% block head_container %}
+
+{% endblock %}
+
+
+{% block content_container %}
+
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title">
+                            <h1>{% trans 'Prepare Plan' %}
+{#                                <small></small>#}
+                            </h1>
+                        </div>
+                    </div>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE BREADCRUMB -->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="{% url 'userprofile:dashboard' %}">{% trans 'Dashboard' %}</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="active">{% trans 'Prepare Plan' %}</span>
+                        </li>
+                    </ul>
+                    <!-- END PAGE BREADCRUMB -->
+                    <!-- BEGIN PAGE BASE CONTENT -->
+
+
+
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 col-xs-12 col-sm-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-cursor font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">{% trans 'Prepare Plan' %}</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        {% include 'userprofile/include/_plan_prepare.html' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE BASE CONTENT -->
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+
+
+{% endblock %}
+
+
+
+
+{% block footer_container %}
+
+{% endblock %}

@@ -1,0 +1,264 @@
+{% extends 'userprofile-base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title_container %}{% trans 'Dashboard' %}{% endblock %}
+
+{% block head_container %}
+
+{% endblock %}
+
+
+{% block content_container %}
+
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEAD-->
+            <div class="page-head">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+                    <h1>{% trans 'Dashboard' %}
+                        <small></small>
+                    </h1>
+                </div>
+                <!-- END PAGE TITLE -->
+            </div>
+            <!-- END PAGE HEAD-->
+            <!-- BEGIN PAGE BREADCRUMB -->
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <span class="active">{% trans 'Dashboard' %}</span>
+                </li>
+            </ul>
+            <!-- END PAGE BREADCRUMB -->
+            <!-- BEGIN PAGE BASE CONTENT -->
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat2 bordered">
+                        <div class="display">
+                            <div class="number">
+                                <h3 class="font-blue-sharp">
+                                    <span data-counter="counterup" data-value="{{ customer_count }}"></span>
+                                </h3>
+                                <small>{% trans 'Customers' %}</small>
+                            </div>
+                            <div class="icon">
+                                <i class="icon-basket"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="dashboard-stat2 bordered">
+                        <div class="display">
+                            <div class="number">
+                                <h3 class="font-purple-soft">
+                                    <span data-counter="counterup" data-value="{{ employee_count }}"></span>
+                                </h3>
+                                <small>{% trans 'Teams' %}</small>
+                            </div>
+                            <div class="icon">
+                                <i class="icon-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if base_profile.type == 'admin-person' %}
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12 col-sm-12">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-cursor font-dark hide"></i>
+                                    <span class="caption-subject font-dark bold uppercase">{% trans 'Prepare Plan' %}</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    {% include 'userprofile/include/_plan_prepare.html' %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12 col-sm-12">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title tabbable-line">
+                                <div class="caption">
+                                    <i class=" icon-social-twitter font-dark hide"></i>
+                                    <span class="caption-subject font-dark bold uppercase">{% trans 'Recent Customers' %}</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_actions_pending">
+                                        <!-- BEGIN: Actions -->
+                                        <div class="mt-actions">
+                                            {% for last_customer in last_customers %}
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img src="{% if last_employee.image %}{{ last_employee.get_41_41_thumb }}{% else %}{% static 'theme/assets/pages/media/users/avatar-def-company.png' %}{% endif %}"/>
+                                                    </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-basket"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">{{ last_customer.name }}</span>
+                                                                    <p class="mt-action-desc">{{ last_customer.address }}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">{{ last_customer.date|date:'d-m-Y' }}</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                                <span class="mt=action-time">{{ last_customer.minute }}</span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <a target="_blank"
+                                                                       href="{% url 'admin:content_location_change' last_customer.id %}"
+                                                                       class="btn btn-outline green btn-sm">{% trans 'Edit' %}</a>
+                                                                    {#                                                                        <a type="button" class="btn btn-outline red btn-sm">Reject</a>#}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                            <div class="mt-body-actions-icons">
+                                                <div class="btn-group btn-group btn-group-justified">
+                                                    <a target="_blank"
+                                                       href="{% url 'admin:content_location_changelist' %}"
+                                                       class="btn btn-success">
+                                                            <span class="mt-icon">
+                                                                <i class="glyphicon glyphicon-align-justify"></i>
+                                                            </span>{% trans 'Show All' %}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- END: Actions -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xs-12 col-sm-12">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title tabbable-line">
+                                <div class="caption">
+                                    <i class=" icon-social-twitter font-dark hide"></i>
+                                    <span class="caption-subject font-dark bold uppercase">{% trans 'Recent Teams' %}</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_actions_pending">
+                                        <!-- BEGIN: Actions -->
+                                        <div class="mt-actions">
+                                            {% for last_employee in last_employees %}
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img style="width: 41px;" src="{% if last_employee.image %}{{ last_employee.get_41_41_thumb }}{% else %}{% static 'theme/assets/pages/media/users/avatar-def-user.png' %}{% endif %}"/>
+                                                    </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-user"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">{{ last_employee.first_name }} {{ last_employee.last_name }}</span>
+                                                                    <p class="mt-action-desc">
+                                                                        {% if last_employee.address %}
+                                                                            {{ last_employee.address }}{% else %}
+                                                                            {{ last_employee.email }} {% endif %}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">{{ last_employee.date|date:"d F Y" }}</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <a target="_blank"
+                                                                       href="{% url 'admin:content_employee_change' last_employee.id %}"
+                                                                       class="btn btn-outline yellow-crusta btn-sm">{% trans 'Edit' %}</a>
+                                                                    <a target="_blank"
+                                                                       href="{% url 'userprofile:admin-employee-plans' last_employee.id %}"
+                                                                       class="btn btn-outline green btn-sm">{% trans 'Plans' %}</a>
+                                                                    {#                                                                        <a type="button" class="btn btn-outline red btn-sm">Reject</a>#}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                            <div class="mt-body-actions-icons">
+                                                <div class="btn-group btn-group btn-group-justified">
+                                                    <a
+{#                                                            target="_blank"#}
+{#                                                       href="{% url 'admin:content_employee_changelist' %}"#}
+                                                       href="{% url 'userprofile:admin-all-employees-plans' %}"
+                                                       class="btn btn-success">
+                                                            <span class="mt-icon">
+                                                                <i class="glyphicon glyphicon-align-justify"></i>
+                                                            </span>{% trans 'Show All' %}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- END: Actions -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PAGE BASE CONTENT -->
+            {% endif %}
+                    {% if base_profile.type == 'employee-person' %}
+                        <div class="row">
+                            <div class="col-lg-12 col-xs-12 col-sm-12">
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="icon-cursor font-dark hide"></i>
+                                            <span class="caption-subject font-dark bold uppercase">{% trans 'Show All My Plans' %}</span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="row">
+                                            <a href="{% url 'userprofile:my-plans' %}"
+                                               class="col-md-12  btn btn-md btn-circle red easy-pie-chart-reload">
+                                                <i class="fa fa-repeat"></i> {% trans 'Show All My Plans' %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+        </div>
+        <!-- END CONTENT BODY -->
+    </div>
+
+
+{% endblock %}
+
+
+
+
+{% block footer_container %}
+
+{% endblock %}

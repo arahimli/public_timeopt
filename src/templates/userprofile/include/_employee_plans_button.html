@@ -1,0 +1,7 @@
+{% load i18n %}
+
+    <li class="todo-projects-item">
+        <a id="show-map-button" data-ajax-url="" onclick="showPlanMap('{% url 'userprofile:admin-employee-plan-map-ajax' %}',{{ employee_get_plans_w_d_location_list }})" class="col-md-12  btn btn-md btn-circle red easy-pie-chart-reload">{% trans 'Look' %}</a>
+        <h3 class="todo-blue"></h3>
+    </li>
+    <div class="todo-projects-divider"></div>

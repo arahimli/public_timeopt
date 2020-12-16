@@ -1,0 +1,69 @@
+{% extends 'userprofile-base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title_container %}{% trans 'Dashboard' %}{% endblock %}
+
+{% block head_container %}
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link href="{% static 'theme/assets/pages/css/error.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL STYLES -->
+{% endblock %}
+
+
+{% block content_container %}
+
+
+
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEAD-->
+            <div class="page-head">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+                    <h1>404
+                        <small>Page Not Found</small>
+                    </h1>
+                </div>
+                <!-- END PAGE TITLE -->
+            </div>
+            <!-- END PAGE HEAD-->
+            <!-- BEGIN PAGE BREADCRUMB -->
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <a href="{% url 'userprofile:dashboard' %}">{% trans 'Dashboard' %}</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span class="active">404</span>
+                </li>
+            </ul>
+            <!-- END PAGE BREADCRUMB -->
+            <!-- BEGIN PAGE BASE CONTENT -->
+            <div class="row">
+                <div class="col-md-12 page-404">
+                    <div class="number font-green"> 404 </div>
+                    <div class="details">
+                        <h3>Page Not Found</h3>
+                        <p> 404 Page Not Found</p>
+                        <p><a class="btn btn-md btn-circle green easy-pie-chart-reload" href="{% url 'userprofile:dashboard' %}"> {% trans 'Return Dashboard' %} </a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE BASE CONTENT -->
+        </div>
+        <!-- END CONTENT BODY -->
+    </div>
+
+
+{% endblock %}
+
+
+
+
+{% block footer_container %}
+
+{% endblock %}

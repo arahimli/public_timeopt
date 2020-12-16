@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load static %}
+<a onclick="preparePlan('main-plan-prepare-button')" {% if base_plan_log or base_settings_obj.main_plan is False %} disabled="disabled" {% endif %} id="main-plan-prepare-button" data-ajax-url="{% url 'userprofile:plan-prepare-ajax' 'main' %}"
+   class="col-md-12  btn btn-md btn-circle red easy-pie-chart-reload">
+    <i class="fa fa-repeat"></i> {% trans 'Prepare Plan' %}
+</a>
+<hr class="col-md-12"/>
+
+<a onclick="preparePlan('sub-main-plan-prepare-button')" {% if base_plan_log or base_settings_obj.sub_plan is False %} disabled="disabled" {% endif %} id="sub-main-plan-prepare-button" data-ajax-url="{% url 'userprofile:plan-prepare-ajax' 'sub-main' %}"
+   class="col-md-12  btn btn-md btn-circle yellow easy-pie-chart-reload">
+    <i class="fa fa-repeat"></i> {% trans 'Prepare Sub Plan' %}
+</a>

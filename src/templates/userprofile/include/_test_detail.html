@@ -1,0 +1,362 @@
+
+                    <div class="todo-container">
+                        {% for employee_work_day in employee.employee_work_days %}
+                        <div class="row ">
+                            {% for week_item in week_list %}
+                                <div class="col-md-4">
+                                    <ul class="todo-projects-container">
+                                        <li class="todo-padding-b-0">
+                                            <div class="todo-head">
+                                                <button class="btn btn-square btn-sm green todo-bold">{% trans 'Show Map' %}</button>
+                                                <h3>{% trans 'Week' %} {{ week_item }} - {% trans 'Day' %} - {{ employee_work_day.day.get_day_name }} </h3>
+{#                                                <p>4 Waiting Attention</p>#}
+                                            </div>
+                                        </li>
+                                            {% if week_item == 1 and employee_work_day.day.day == 1 %}
+                                                {% with employee_work_day.get_plans_1_1 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {{ employee_get_plans_w_d }} {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 1 %}
+                                                {% with employee_work_day.get_plans_2_1 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 1 %}
+                                                {% with employee_work_day.get_plans_3_1 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+
+
+
+
+
+
+                                            {% if week_item == 1 and employee_work_day.day.day == 2 %}
+                                                {% with employee_work_day.get_plans_1_2 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 2 %}
+                                                {% with employee_work_day.get_plans_2_2 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 2 %}
+                                                {% with employee_work_day.get_plans_3_2 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 1 and employee_work_day.day.day == 3 %}
+                                                {% with employee_work_day.get_plans_1_3 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 3 %}
+                                                {% with employee_work_day.get_plans_2_3 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 3 %}
+                                                {% with employee_work_day.get_plans_3_3 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 1 and employee_work_day.day.day == 4 %}
+                                                {% with employee_work_day.get_plans_1_4 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 4 %}
+                                                {% with employee_work_day.get_plans_2_4 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 4 %}
+                                                {% with employee_work_day.get_plans_3_4 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+
+                                            {% if week_item == 1 and employee_work_day.day.day == 5 %}
+                                                {% with employee_work_day.get_plans_1_5 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 5 %}
+                                                {% with employee_work_day.get_plans_2_5 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline"> {{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 5 %}
+                                                {% with employee_work_day.get_plans_3_5 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 1 and employee_work_day.day.day == 6 %}
+                                                {% with employee_work_day.get_plans_1_6 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 6 %}
+                                                {% with employee_work_day.get_plans_2_6 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 6 %}
+                                                {% with employee_work_day.get_plans_3_6 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 1 and employee_work_day.day.day == 7 %}
+                                                {% with employee_work_day.get_plans_1_7 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 7 %}
+                                                {% with employee_work_day.get_plans_2_7 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 7 %}
+                                                {% with employee_work_day.get_plans_3_7 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }} {% trans 'Minutes' %}</p>
+
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+
+                                    </ul>
+                                </div>
+                            {% endfor %}
+
+                            </div>
+                            <div class="clear-fix"></div>
+                        {% endfor %}
+                    </div>

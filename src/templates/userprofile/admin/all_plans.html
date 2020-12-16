@@ -1,0 +1,234 @@
+{% extends 'userprofile-base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title_container %}{% trans 'All Plans' %}{% endblock %}
+
+{% block head_container %}
+
+{% endblock %}
+
+
+{% block content_container %}
+
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title">
+                            <h1>{% trans 'All Plans' %}
+{#                                <small>statistics, charts, recent events and reports</small>#}
+                            </h1>
+                        </div>
+                        <!-- END PAGE TITLE -->
+                        <!-- BEGIN PAGE TOOLBAR -->
+                        <div class="page-toolbar">
+                            <div id="dashboard-report-range" data-display-range="0" class="pull-right tooltips btn btn-fit-height green" data-placement="left" data-original-title="Change dashboard date range">
+                                <i class="icon-calendar"></i>&nbsp;
+                                <span class="thin uppercase hidden-xs"></span>&nbsp;
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+                            <!-- BEGIN THEME PANEL -->
+                            <div class="btn-group btn-theme-panel">
+                                <a href="javascript:;" class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <i class="icon-settings"></i>
+                                </a>
+                                <div class="dropdown-menu theme-panel pull-right dropdown-custom hold-on-click">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <h3>HEADER</h3>
+                                            <ul class="theme-colors">
+                                                <li class="theme-color theme-color-default active" data-theme="default">
+                                                    <span class="theme-color-view"></span>
+                                                    <span class="theme-color-name">Dark Header</span>
+                                                </li>
+                                                <li class="theme-color theme-color-light " data-theme="light">
+                                                    <span class="theme-color-view"></span>
+                                                    <span class="theme-color-name">Light Header</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12 seperator">
+                                            <h3>LAYOUT</h3>
+                                            <ul class="theme-settings">
+                                                <li> Layout
+                                                    <select class="layout-option form-control input-small input-sm">
+                                                        <option value="fluid" selected="selected">Fluid</option>
+                                                        <option value="boxed">Boxed</option>
+                                                    </select>
+                                                </li>
+                                                <li> Header
+                                                    <select class="page-header-option form-control input-small input-sm">
+                                                        <option value="fixed" selected="selected">Fixed</option>
+                                                        <option value="default">Default</option>
+                                                    </select>
+                                                </li>
+                                                <li> Top Dropdowns
+                                                    <select class="page-header-top-dropdown-style-option form-control input-small input-sm">
+                                                        <option value="light">Light</option>
+                                                        <option value="dark" selected="selected">Dark</option>
+                                                    </select>
+                                                </li>
+                                                <li> Sidebar Mode
+                                                    <select class="sidebar-option form-control input-small input-sm">
+                                                        <option value="fixed">Fixed</option>
+                                                        <option value="default" selected="selected">Default</option>
+                                                    </select>
+                                                </li>
+                                                <li> Sidebar Menu
+                                                    <select class="sidebar-menu-option form-control input-small input-sm">
+                                                        <option value="accordion" selected="selected">Accordion</option>
+                                                        <option value="hover">Hover</option>
+                                                    </select>
+                                                </li>
+                                                <li> Sidebar Position
+                                                    <select class="sidebar-pos-option form-control input-small input-sm">
+                                                        <option value="left" selected="selected">Left</option>
+                                                        <option value="right">Right</option>
+                                                    </select>
+                                                </li>
+                                                <li> Footer
+                                                    <select class="page-footer-option form-control input-small input-sm">
+                                                        <option value="fixed">Fixed</option>
+                                                        <option value="default" selected="selected">Default</option>
+                                                    </select>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END THEME PANEL -->
+                        </div>
+                        <!-- END PAGE TOOLBAR -->
+                    </div>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE BREADCRUMB -->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="index.html">Home</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        <li>
+                            <span class="active">Dashboard</span>
+                        </li>
+                    </ul>
+                    <!-- END PAGE BREADCRUMB -->
+                    <!-- BEGIN PAGE BASE CONTENT -->
+
+
+
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-cursor font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">General Stats</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a href="javascript:;" class="btn btn-sm btn-circle red easy-pie-chart-reload">
+                                            <i class="fa fa-repeat"></i> Reload </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="easy-pie-chart">
+                                                <div class="number transactions" data-percent="55">
+                                                    <span>+55</span>% </div>
+                                                <a class="title" href="javascript:;"> Transactions
+                                                    <i class="icon-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="margin-bottom-10 visible-sm"> </div>
+                                        <div class="col-md-4">
+                                            <div class="easy-pie-chart">
+                                                <div class="number visits" data-percent="85">
+                                                    <span>+85</span>% </div>
+                                                <a class="title" href="javascript:;"> New Visits
+                                                    <i class="icon-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="margin-bottom-10 visible-sm"> </div>
+                                        <div class="col-md-4">
+                                            <div class="easy-pie-chart">
+                                                <div class="number bounce" data-percent="46">
+                                                    <span>-46</span>% </div>
+                                                <a class="title" href="javascript:;"> Bounce
+                                                    <i class="icon-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-equalizer font-dark hide"></i>
+                                        <span class="caption-subject font-dark bold uppercase">Server Stats</span>
+                                        <span class="caption-helper">monthly stats...</span>
+                                    </div>
+                                    <div class="tools">
+                                        <a href="" class="collapse"> </a>
+                                        <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+                                        <a href="" class="reload"> </a>
+                                        <a href="" class="remove"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="sparkline-chart">
+                                                <div class="number" id="sparkline_bar5"></div>
+                                                <a class="title" href="javascript:;"> Network
+                                                    <i class="icon-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="margin-bottom-10 visible-sm"> </div>
+                                        <div class="col-md-4">
+                                            <div class="sparkline-chart">
+                                                <div class="number" id="sparkline_bar6"></div>
+                                                <a class="title" href="javascript:;"> CPU Load
+                                                    <i class="icon-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="margin-bottom-10 visible-sm"> </div>
+                                        <div class="col-md-4">
+                                            <div class="sparkline-chart">
+                                                <div class="number" id="sparkline_line"></div>
+                                                <a class="title" href="javascript:;"> Load Rate
+                                                    <i class="icon-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END PAGE BASE CONTENT -->
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+
+
+{% endblock %}
+
+
+
+
+{% block footer_container %}
+
+{% endblock %}

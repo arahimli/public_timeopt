@@ -1,0 +1,60 @@
+
+
+
+
+
+
+                                            {% if week_item == 1 and employee_work_day.day.day == 7 %}
+                                                {% with employee.get_plans_1_7 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }}</p>
+                                                                <p class="todo-inline todo-float-r">
+                                                                    <a class="todo-add-button" href="#todo-members-modal" data-toggle="modal">+</a>
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 2 and employee_work_day.day.day == 7 %}
+                                                {% with employee.get_plans_2_7 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }}</p>
+                                                                <p class="todo-inline todo-float-r">
+                                                                    <a class="todo-add-button" href="#todo-members-modal" data-toggle="modal">+</a>
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}
+                                            {% if week_item == 3 and employee_work_day.day.day == 7 %}
+                                                {% with employee.get_plans_3_7 as employee_get_plans_w_d %}
+                                                    {% for employee_get_plans_w_d_get_location in employee_get_plans_w_d.get_locations %}
+                                                        <li class="todo-projects-item {% if forloop.counter == 1 %}todo-active{% endif %}">
+                                                            <h3 class="todo-blue">{{ employee_get_plans_w_d_get_location.location.name }}</h3>
+                                                            <p>{{ employee_get_plans_w_d_get_location.location.address }}</p>
+                                                            <div class="todo-project-item-foot">
+                                                                <p class="todo-red todo-inline">{{ employee_get_plans_w_d_get_location.location.minute }}</p>
+                                                                <p class="todo-inline todo-float-r">
+                                                                    <a class="todo-add-button" href="#todo-members-modal" data-toggle="modal">+</a>
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                        <div class="todo-projects-divider"></div>
+                                                    {% endfor %}
+
+                                                {% endwith %}
+                                            {% endif %}

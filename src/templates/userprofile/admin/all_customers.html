@@ -1,0 +1,172 @@
+{% extends 'userprofile-base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_available_languages as languages %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title_container %}{% trans 'All Customers' %}{% endblock %}
+
+{% block head_container %}
+
+{% endblock %}
+
+
+{% block content_container %}
+
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEAD-->
+            <div class="page-head">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+                    <h1>{% trans 'All Customers' %}
+                        <small></small>
+                    </h1>
+                </div>
+                <!-- END PAGE TITLE -->
+            </div>
+            <!-- END PAGE HEAD-->
+            <!-- BEGIN PAGE BREADCRUMB -->
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <span class="active">{% trans 'All Customers' %}</span>
+                </li>
+            </ul>
+            <!-- END PAGE BREADCRUMB -->
+            <!-- BEGIN PAGE BASE CONTENT -->
+
+            {% if base_profile.type == 'admin-person' %}
+{#                <div class="row">#}
+{#                    <div class="col-lg-12 col-xs-12 col-sm-12">#}
+{#                        <div class="portlet light bordered">#}
+{#                            <div class="portlet-title">#}
+{#                                <div class="caption">#}
+{#                                    <i class="icon-cursor font-dark hide"></i>#}
+{#                                    <span class="caption-subject font-dark bold uppercase">{% trans 'Prepare Plan' %}</span>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="portlet-body">#}
+{#                                <div class="row">#}
+{#                                    {% include 'userprofile/include/_plan_prepare.html' %}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+
+
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12 col-sm-12">
+                        <div class="portlet light bordered">
+                            <div class="portlet-title tabbable-line">
+                                <div class="caption">
+                                    <i class=" icon-social-twitter font-dark hide"></i>
+                                    <span class="caption-subject font-dark bold uppercase">{% trans 'Customers' %}</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_actions_pending">
+                                        <!-- BEGIN: Actions -->
+                                        <div class="mt-actions">
+                                            {% for customer in customers %}
+                                                <div class="mt-action">
+                                                    <div class="mt-action-img">
+                                                        <img style="width: 41px;" src="
+                                                                {% if customer.image %}{{ customer.get_41_41_thumb }}{% else %}{% static 'theme/assets/pages/media/users/avatar-def-user.png' %}{% endif %}"/>
+                                                    </div>
+                                                    <div class="mt-action-body">
+                                                        <div class="mt-action-row">
+                                                            <div class="mt-action-info ">
+                                                                <div class="mt-action-icon ">
+                                                                    <i class="icon-user"></i>
+                                                                </div>
+                                                                <div class="mt-action-details ">
+                                                                    <span class="mt-action-author">{{ customer.first_name }} {{ customer.last_name }}</span>
+                                                                    <p class="mt-action-desc">
+                                                                        {% if customer.address %}
+                                                                            {{ customer.address }}{% else %}
+                                                                            {{ customer.email }} {% endif %}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-action-datetime ">
+                                                                <span class="mt-action-date">{{ customer.date|date:'d F Y' }}</span>
+                                                                <span class="mt-action-dot bg-green"></span>
+{#                                                                <span class="mt=action-time">9:30-13:00</span>#}
+                                                            </div>
+                                                            <div class="mt-action-buttons ">
+                                                                <div class="btn-group btn-group-circle">
+                                                                    <a target="_blank"
+                                                                       href="{% url 'admin:content_location_change' customer.id %}"
+                                                                       class="btn btn-outline yellow-crusta btn-sm">{% trans 'Edit' %}</a>
+                                                                    {#                                                                        <a type="button" class="btn btn-outline red btn-sm">Reject</a>#}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                        <!-- END: Actions -->
+                                        <div id="products" class="row list-group">
+                                            {% if customers %}
+                                                <div class="col-md-12" style="    background: #fff;text-align: center;">
+                                                    {#            {{ customers.count }}#}
+                                                    <ul class="pagination pagination-info"
+                                                        style="    background: #fff;">
+                                                        {% if customers.has_previous %}
+                                                            <li>
+                                                                <a href="?page={{ customers.previous_page_number }}">{% trans 'previous' %}</a>
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if customers.page_range_data.show_first %}
+                                                            <li><a href="?page=1">1</a></li>
+                                                            <li><a class="ellipsis">...</a></li>
+                                                        {% endif %}
+                                                        {% for i in customers.page_range_data.page_range %}
+                                                            {% ifequal i customers.number %}
+                                                                <li class="active"><a>{{ i }}</a></li>
+                                                            {% else %}
+                                                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                                            {% endifequal %}
+                                                        {% endfor %}
+                                                        {% if customers.page_range_data.show_last %}
+                                                            <li><a class="ellipsis">...</a></li>
+                                                            <li>
+                                                                <a href="?page={{ customers.paginator.num_pages }}">{{ customers.paginator.num_pages }}</a>
+                                                            </li>
+                                                        {% endif %}
+
+                                                        {% if customers.has_next %}
+                                                            <li>
+                                                                <a href="?page={{ customers.next_page_number }}">{% trans 'next' %}</a>
+                                                            </li>
+                                                        {% endif %}
+
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END PAGE BASE CONTENT -->
+            {% endif %}
+        </div>
+        <!-- END CONTENT BODY -->
+    </div>
+
+
+{% endblock %}
+
+
+
+
+{% block footer_container %}
+
+{% endblock %}

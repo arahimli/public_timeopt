@@ -1,0 +1,10 @@
+{% load i18n %}
+    <div class="col-md-3">
+        <ul class="todo-projects-container">
+            <li class="todo-padding-b-0">
+                <div class="todo-head">
+{#                    <button class="btn btn-square btn-sm green todo-bold">{% trans 'Show Map' %}</button>#}
+                    <h3>{% trans 'Week' %}: {{ week_item }}  |  {% trans 'Day' %}: {{ employee_work_day.day.get_day_name }} </h3>
+    {#                                                <p>4 Waiting Attention</p>#}
+                </div>
+            </li>
